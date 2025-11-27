@@ -1,0 +1,85 @@
+:root {
+    --primary-background: #121212; /* True dark, very common in modern apps. */
+    --secondary-background: #1a1a1a; /* Slightly lighter; reduces flatness. */
+    --surface-background: #1e1e1e; /* Good for cards, panels, modals. */
+    --elevated-surface: #242424; /* For elements meant to “pop” slightly. */
+
+    --primary-text: #ffffff; /* For main body text, headlines. */
+    --secondary-text: #BBBBBB; /* For subtitles, metadata. */
+    --teritary-text: #888888; /* For captions, low-priority info. */
+    --disabled-text: #5e5e5e; /* For disabled controls. */
+
+    --standard-border: #2A2A2A2A; /* Subtle but visible. */
+    --divider: #333333; /* Used between rows, list items. */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: var(--primary-background);
+    color: var(--primary-text);
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, li, nav, a {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.flex-down {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+nav {
+    background-color: var(--secondary-background);
+    padding: 0.5rem;
+}
+
+
+
+@media (min-width: 600px) { }   /* Large mobile / phablet */
+@media (min-width: 768px) { }   /* Tablet */
+@media (min-width: 1024px) { }  /* Small desktop */
+
+/* Desktop */
+
+@media (min-width: 1280px) {
+    .desktop-nav{
+        display: flex;
+        gap: 2rem;
+    }
+
+    .desktop-nav ul {
+        gap: 2rem;
+        list-style: none;
+    }
+
+    .desktop-nav ul li a {
+        text-decoration: none;
+        color: var(--primary-text);
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 3rem;
+    }
+
+}
+
+@media (min-width: 1440px) { }  /* Large desktop */

@@ -1,0 +1,99 @@
+:root {
+    --primary-background: #121212; /* True dark, very common in modern apps. */
+    --secondary-background: #1a1a1a; /* Slightly lighter; reduces flatness. */
+    --surface-background: #1e1e1e; /* Good for cards, panels, modals. */
+    --elevated-surface: #242424; /* For elements meant to “pop” slightly. */
+
+    --primary-text: #ffffff; /* For main body text, headlines. */
+    --secondary-text: #BBBBBB; /* For subtitles, metadata. */
+    --teritary-text: #888888; /* For captions, low-priority info. */
+    --disabled-text: #5e5e5e; /* For disabled controls. */
+
+    --standard-border: #2A2A2A2A; /* Subtle but visible. */
+    --divider: #333333; /* Used between rows, list items. */
+}
+
+.hamburger {
+    display: block;
+    margin: 1rem 1rem 1rem 0;
+    position: relative;
+}
+
+.hamburger.open .hamburger-menu-items {
+    opacity: 1;
+    pointer-events: auto;
+    max-height: 100vh;
+}
+
+.hamburger-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: right;
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid var(--standard-border);
+    border-radius: 0.8rem;
+}
+
+.hamburger-lines div {
+    background-color: var(--primary-text);
+    width: 25px;
+    height: 3px;
+    margin: 3px 0;
+    border-radius: 1rem;
+}
+
+.hamburger-menu-items {
+    background-color: var(--surface-background);
+    width: 100vw;
+    height: 90vh;
+    padding: 2rem;
+    margin-top: 1rem;
+    position: absolute;
+    list-style: none;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 0;    
+}
+
+
+.hamburger-menu-items li {
+    background-color: var(--surface-background);
+    text-decoration: none;
+    padding-right: 1rem;
+    text-align: right;
+    border-bottom: 2px solid var(--standard-border);
+    width: 100%;
+    height: auto;
+
+}
+
+.hamburger-menu-items li a {
+    display:block;
+    color: var(--primary-text);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    padding: 1rem 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Desktop */
+
+@media (min-width: 1280px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+@media (min-width: 600px) { }   /* Large mobile / phablet */
+@media (min-width: 768px) { }   /* Tablet */
+@media (min-width: 1024px) { }  /* Small desktop */
+@media (min-width: 1280px) { }  /* Desktop */
+@media (min-width: 1440px) { }  /* Large desktop */
