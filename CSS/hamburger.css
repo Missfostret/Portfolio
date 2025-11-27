@@ -11,18 +11,35 @@
 
     --standard-border: #2A2A2A2A; /* Subtle but visible. */
     --divider: #333333; /* Used between rows, list items. */
+        
+    /* Hamburger */
+    --hamburger-line: #E6E6E6;
+    --hamburger-line-hover: #66B2FF;
+    --hamburger-bg-active: rgba(76, 155, 255, 0.15);
 }
 
 .hamburger {
     display: block;
-    margin: 1rem 1rem 1rem 0;
+    padding: 0.5rem;
     position: relative;
+}
+
+.hamburger-lines:active div, .hamburger-lines:hover div {
+    background-color: var(--hamburger-line-hover);
 }
 
 .hamburger.open .hamburger-menu-items {
     opacity: 1;
     pointer-events: auto;
     max-height: 100vh;
+}
+
+.hamburger.open .hamburger-lines {
+    background-color: var(--hamburger-bg-active);
+}
+
+.hamburger.open .hamburger-lines div {
+    background-color: var(--hamburger-line-hover);
 }
 
 .hamburger-lines {
@@ -32,12 +49,12 @@
     justify-self: right;
     cursor: pointer;
     padding: 10px;
-    border: 2px solid var(--standard-border);
+    border: 2px solid var(--divider);
     border-radius: 0.8rem;
 }
 
 .hamburger-lines div {
-    background-color: var(--primary-text);
+    background-color: var(--hamburger-line);
     width: 25px;
     height: 3px;
     margin: 3px 0;
@@ -46,11 +63,11 @@
 
 .hamburger-menu-items {
     background-color: var(--surface-background);
-    width: 100vw;
-    height: 90vh;
-    padding: 2rem;
     margin-top: 1rem;
-    position: absolute;
+    top: 100%;          
+    left: 0;
+    right: 0; 
+    margin: 0;
     list-style: none;
     opacity: 0;
     pointer-events: none;
@@ -84,6 +101,12 @@
     object-fit: cover;
 }
 
+@media (hover: none) {
+    .hamburger-lines:hover div {
+        background-color: var(--hamburger-line);
+    }
+}
+
 /* Desktop */
 
 @media (min-width: 1280px) {
@@ -94,6 +117,3 @@
 
 @media (min-width: 600px) { }   /* Large mobile / phablet */
 @media (min-width: 768px) { }   /* Tablet */
-@media (min-width: 1024px) { }  /* Small desktop */
-@media (min-width: 1280px) { }  /* Desktop */
-@media (min-width: 1440px) { }  /* Large desktop */

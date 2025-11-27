@@ -11,14 +11,43 @@
 
     --standard-border: #2A2A2A2A; /* Subtle but visible. */
     --divider: #333333; /* Used between rows, list items. */
+
+    --pop-blue: #4C9BFF;
+    --pop-blue-hover: #66B2FF;
+    --pop-blue-active: #2A7DFF;
+
+    --pop-purple: #A97FFF;
+    --pop-purple-hover: #C2A1FF;
+
+    --pop-green: #5FF2C4;
+    --pop-green-hover: #7FF8D3;
+
+    --pop-coral: #FF6F61;
+    --pop-coral-hover: #FF857C;
+
+    --pop-neutral: #E0E0E0;
+    --pop-neutral-hover: #FFFFFF;
+
+    /* Glow */
+    --glow-blue: rgba(76, 155, 255, 0.35);
+    --glow-purple: rgba(169, 127, 255, 0.35);
+    --glow-green: rgba(95, 242, 196, 0.35);
+
+    /* Hover */
+    --hover-bg: #2B2B2B;
+    --hover-bg-strong: #353535;
+    --hover-border: #3D3D3D;
+
 }
 
-* {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    overflow-x: hidden;
 }
-
 
 body {
     background-color: var(--primary-background);
@@ -28,6 +57,11 @@ body {
 
 h1, h2, h3, h4, h5, h6, li, nav, a {
     font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 .flex-down {
@@ -45,8 +79,15 @@ h1, h2, h3, h4, h5, h6, li, nav, a {
 }
 
 nav {
-    background-color: var(--secondary-background);
-    padding: 0.5rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--surface-background);
+    padding: 0.125rem 0;
+    box-shadow: 0 3px 5px #00000033;
+    z-index: 1010;
 }
 
 
